@@ -1,0 +1,53 @@
+<ion-modal-view ng-controller="StartCtrl">
+  <ion-header-bar class="main-color">
+    <div class="buttons buttons-left header-item">
+      <span class="left-buttons">
+        <button class="button button-icon button-clear ion-ios-flag"></button>
+      </span>
+    </div>
+    <div class="h1 title title-left light">{{ 'Nav_title' | translate }}</div>
+    <div class="buttons buttons-right header-item">
+      <span class="right-buttons">
+      <button class="button button-assertive button-fab" ng-click="closeStart()">
+        <i class="icon ion-close-round"></i>
+      </button>
+      </span>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <div class="list">
+      <a class="item item-icon-left">
+        <i class="icon ion-ios-navigate-outline"></i>
+        <label class="item item-input item-select">
+          <div class="input-label">{{ 'Nav_pointA' | translate }}</div>
+          <select id="selectA">
+          <option ng-repeat="place in places">{{place.name}}</option>
+          </select>
+        </label>
+      </a>
+      <a class="item item-icon-left">
+        <i class="icon ion-ios-navigate"></i>
+        <label class="item item-input item-select">
+          <div class="input-label">{{ 'Nav_pointB' | translate }}</div>
+          <select id="selectB">
+          <option ng-repeat="place in places" ng-selected=true>{{place.name}}</option>
+          </select>
+        </label>
+      </a>
+      <div class="item item-icon-left">
+        <i class="icon ion-model-s"></i>
+          <li class="item item-toggle" style="font-size: 16px;">
+            {{'Nav_bycar' | translate}}
+       <label class="toggle toggle-calm">
+         <input type="checkbox" ng-checked="byCar" id="navCheck" ng-click="modeChange()">
+         <div class="track">
+           <div class="handle"></div>
+         </div>
+       </label>
+       </li>
+      </div>
+    </div>
+
+  </ion-content>
+  <ion-footer-bar class="main-color" ng-click="loading()"><div class="title">{{ 'Nav_start' | translate }}</div></ion-footer-bar>
+</ion-modal-view>

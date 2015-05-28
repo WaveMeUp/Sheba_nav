@@ -1,0 +1,86 @@
+/* Empty. Add your own CSS if you like */
+
+* {
+    box-shadow: none !important;
+}
+
+.main-color {
+	background-color: #1E73BE;
+	border-color: #1E73BE;
+	color: white;
+}
+
+.main-color2 {
+	background-color: #002452;
+	border-color: #002452;
+}
+
+.text-color {
+	color: #4C4C4C;
+}
+
+.main-fab {
+	display: inline-block;
+	position: absolute;
+	bottom: 60px; 
+	right: 20px;
+}
+
+.about_images img {
+	max-width: 100%;
+	display: inline-block;
+	margin: 0 auto;
+}
+
+.about_images {
+	width: 100%;
+	text-align: center;
+}
+
+.bar-header .title {
+	left: 32px!important;
+}
+
+.img_head {
+	background-image: url('../img/about_head.JPG');
+	height: 200px;
+	background-size: cover;
+	position: relative;
+}
+
+.img_head p {
+	position: absolute;
+bottom: -12px;
+color: white;
+font-size: 17px;
+background-color: rgba(76, 76, 76, 0.9);
+width: 100%;
+padding: 5px;
+text-align: center;
+}
+
+#about_cont {
+	font-size: 14px;
+}
+
+.about_grey {
+	height: 100px;
+	background-color: grey;
+	text-align: left;
+	font-size: 15px;
+}
+.scroll{height: 100%;}
+
+.pane, .modal {
+	background-image: url("../img/pattern.png") !important;
+}
+
+select {
+	background: transparent!important;
+}
+
+.item-select select {
+	max-width: 55%;
+	text-overflow: ellipsis;
+	text-align: right;
+}

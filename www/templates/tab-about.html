@@ -1,0 +1,25 @@
+<ion-view>
+  <ion-header-bar class="main-color">
+    <div class="buttons buttons-left header-item">
+      <span class="left-buttons">
+        <button class="button button-icon button-clear ion-map"></button>
+      </span>
+    </div>
+    <div class="h1 title title-left light">{{'Title' | translate}}</div>
+  </ion-header-bar>
+  <ion-content ng-init="init()" has-bouncing="true" ng-controller="AboutCtrl">
+      <div class="img_head">
+        <p>Version 0.0.1<br>
+        © 2015 {{'About_title' | translate}}</p>
+      </div>
+      <div id="about_cont" class="padding ing">
+        <p class="dark" translate="About_desc"></p>
+      </div>
+      <div class="padding" style="padding-top: 0px!important; width: 100%; height: 100%;">
+      <div id="map-cont" style="width: 100%; height: 100%;" data-tap-disabled="true"></div>
+      </div>
+  </ion-content>
+  <button class="button button-calm button-fab main-fab" ng-click="openInfo()">
+        <i class="icon ion-information-circled"></i>
+      </button>
+</ion-view>

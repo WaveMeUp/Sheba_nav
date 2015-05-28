@@ -1,0 +1,26 @@
+<ion-view>
+  <ion-header-bar class="main-color">
+    <div class="buttons buttons-left header-item">
+      <span class="left-buttons">
+        <button class="button button-icon button-clear ion-map"></button>
+      </span>
+    </div>
+    <div class="h1 title title-left light">{{ 'Title' | translate }}</div>
+  </ion-header-bar>
+  <ion-content class="padding" ng-init="init()" class="animate-ripple" has-bouncing="true">
+    <button class="button button-block button-calm">{{mode}}</button>
+    <div class="row">
+  <div class="col">
+    <button class="button button-block button-dark" ng-click="clickA()"><i class="icon ion-ios-navigate-outline"></i> Point A</button>
+  </div>
+  <div class="col">
+    <button class="button button-block button-dark" ng-click="clickB()"><i class="icon ion-ios-navigate"></i> Point B</button>
+  </div>
+</div>
+<div id="map-canvas" data-tap-disabled="true" style="width: 100%; height: 100%"></div>
+    <p></p>
+  </ion-content>
+  <button id="reset_fab" href="#/tab/start" class="button button-royal button-fab main-fab" ng-click="reset_nav()">
+      <i class="icon ion-ios-loop-strong"></i>
+  </button>
+</ion-view>

@@ -1,0 +1,37 @@
+<ion-view view-title="Settings">
+<ion-header-bar class="main-color">
+    <div class="buttons buttons-left header-item">
+      <span class="left-buttons">
+        <button class="button button-icon button-clear ion-map"></button>
+      </span>
+    </div>
+    <div class="h1 title title-left light">{{'Title' | translate}}</div>
+  </ion-header-bar>
+  <ion-content class="padding" has-bouncing="true">
+    <div class="list">
+    <div class="item item-divider" style="line-height: 30px; ">
+    {{'Settings_lang' | translate}}
+    </div>
+      <label class="item item-radio" ng-repeat="lang in languages" ng-click="changeLanguage('{{lang.name_min}}')">
+        <input type="radio" name="group" ng-checked="{{lang.check}}">
+        <div class="item-content">
+          {{lang.name}}
+        </div>
+        <i class="radio-icon ion-checkmark"></i>
+      </label>
+      <div class="item item-divider" style="line-height: 30px; border-bottom: solid 1px rgba(0, 0, 0, .12)!important; border-top: none;">
+    {{'Settings_other' | translate}}
+      </div>
+      <li class="item item-toggle">
+     {{'Settings_new-route' | translate}}
+     <label class="toggle toggle-calm">
+       <input type="checkbox" ng-checked="{{start_route}}" ng-click="toggle_start()">
+       <div class="track">
+         <div class="handle"></div>
+       </div>
+     </label>
+  </li>
+
+      </div>
+  </ion-content>
+</ion-view>
