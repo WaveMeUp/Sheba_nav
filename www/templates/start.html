@@ -35,9 +35,10 @@
         </label>
       </a>
       <div class="item item-icon-left">
-        <i class="icon ion-model-s"></i>
+        <i class="icon ion-model-s" ng-if="byCar"></i>
+        <i class="icon ion-android-walk" ng-if="!byCar"></i>
           <li class="item item-toggle" style="font-size: 16px;">
-            {{'Nav_bycar' | translate}}
+            {{mode}}
        <label class="toggle toggle-calm">
          <input type="checkbox" ng-checked="byCar" id="navCheck" ng-click="modeChange()">
          <div class="track">

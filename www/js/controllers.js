@@ -2,33 +2,13 @@ var myApp = angular.module('starter.controllers', []);
 
 
 
-myApp.controller('NavCtrl', function($scope, $ionicModal,$state, $timeout, ionicMaterialInk, ionicMaterialMotion) {
+myApp.controller('NavCtrl', function($scope, $ionicModal,$state, $timeout, ionicMaterialInk) {
 	$ionicModal.fromTemplateUrl('templates/start.html', {
     scope: $scope
   }).then(function(modal) {
     $scope.modal = modal;
   });
 
-  var fab = document.getElementById('main_fab');
-
-  $scope.motionFab = function(type) {
-      var shouldAnimate = false;
-      var classes = type instanceof Array ? type : [type];
-      for (var i = 0; i < classes.length; i++) {
-          fab.classList.toggle(classes[i]);
-          shouldAnimate = fab.classList.contains(classes[i]);
-          if (shouldAnimate) {
-              (function(theClass) {
-                  $timeout(function() {
-                      fab.classList.toggle(theClass);
-                  }, 300);
-              })(classes[i]);
-          }
-      }
-  };
-  $timeout(function() {
-    $scope.motionFab('drop');
-  }, 300);
   $scope.closeStart = function() {
     $scope.modal.hide();
   };
@@ -42,25 +22,24 @@ myApp.controller('NavCtrl', function($scope, $ionicModal,$state, $timeout, ionic
     }, 2000);
   }
   ionicMaterialInk.displayEffect();
-  ionicMaterialMotion.ripple();
 });
 
-myApp.controller('AboutCtrl', function($scope, $ionicLoading, $ionicModal, ionicMaterialInk) {
+myApp.controller('AboutCtrl', function($scope, $timeout, $ionicLoading, $ionicModal, ionicMaterialInk, ionicMaterialMotion) {
   ionicMaterialInk.displayEffect();
-
-  $ionicLoading.show({
-      content: 'Loading',
-      template: '<ion-spinner icon="ios"></ion-spinner>',
-      animation: 'fade-in',
-      showBackdrop: true,
-      maxWidth: 200,
-      showDelay: 0
-    });
+  $timeout(function() {
+    ionicMaterialMotion.fadeSlideIn();
+  },450)
  
   $ionicModal.fromTemplateUrl('templates/info.html', {
     scope: $scope
   }).then(function(modal) {
     $scope.modal = modal;
+  });
+
+  $ionicModal.fromTemplateUrl('templates/map.html', {
+    scope: $scope
+  }).then(function(modal) {
+    $scope.modal_map = modal;
   });
 
   $scope.closeInfo = function() {
@@ -71,25 +50,53 @@ myApp.controller('AboutCtrl', function($scope, $ionicLoading, $ionicModal, ionic
     $scope.modal.show();
   };
 
-  $scope.init = function() {
-        var mapOptions = {
-          center: { lat: 32.047814, lng: 34.845270},
-          zoom: 16
-        };
-        var center_map = new google.maps.Map(document.getElementById('map-cont'),
-            mapOptions);
+  $scope.closeMap = function() {
+    $scope.modal_map.hide();
+  };
 
-        google.maps.event.addListenerOnce(center_map, 'idle', function(){
-          google.maps.event.trigger(center_map, 'resize');
-          $ionicLoading.hide();
-        });
+  var i = 0;
+
+  $scope.openMap = function() {
+    if (i==0) {
+      $ionicLoading.show({
+        content: 'Loading',
+        template: '<ion-spinner icon="ios"></ion-spinner>',
+        animation: 'fade-in',
+        showBackdrop: true,
+        maxWidth: 200,
+        showDelay: 0
+      });
+    }
+    $scope.modal_map.show();
+    if (i==0) {
+      $timeout(function() {
+          var mapOptions = {
+            center: { lat: 32.047814, lng: 34.845270},
+            zoom: 16
+          };
+          var center_map = new google.maps.Map(document.getElementById('map-cont'),
+              mapOptions);
+
+          var GeoMarker = new GeolocationMarker(center_map);
+
+          google.maps.event.addListenerOnce(center_map, 'idle', function(){
+            google.maps.event.trigger(center_map, 'resize');
+            if (i==0) $ionicLoading.hide();
+            i++;
+          });
+      }, 800);
   }
+  };
+
       
 });
 
-myApp.controller('StartCtrl', function($scope, $timeout, $state, $ionicLoading, ionicMaterialInk, Data) {
+myApp.controller('StartCtrl', function($scope, $translate, $timeout, $state, $ionicLoading, ionicMaterialInk, Data) {
   ionicMaterialInk.displayEffect();
   $scope.byCar = true;
+  $translate('Nav_bycar').then(function (mode) {
+          $scope.mode = mode;
+  })
   Data.byCar = true;
   $scope.places = [
     { name: 'Entrance',
@@ -110,6 +117,16 @@ myApp.controller('StartCtrl', function($scope, $timeout, $state, $ionicLoading, 
   ];
   $scope.modeChange = function() {
     Data.byCar = document.getElementById('navCheck').checked;
+    $scope.byCar = Data.byCar;
+    if(Data.byCar) {
+      $translate('Nav_bycar').then(function (mode) {
+          $scope.mode = mode;
+      })
+    } else {
+      $translate('Nav_bylegs').then(function (mode) {
+          $scope.mode = mode;
+      })
+    }
   }
 
   $scope.loading = function() {
@@ -140,10 +157,10 @@ myApp.controller('StartCtrl', function($scope, $timeout, $state, $ionicLoading, 
 
 myApp.controller('SettingsCtrl', function($scope, $translate, ionicMaterialInk) {
   ionicMaterialInk.displayEffect();
+
   $scope.start_route = window.localStorage['start_modal'];
   $scope.update = function() {
    $scope.item.size.code = $scope.selectedItem.code;
-   console.log($scope.selectedItem);
   }
   $scope.toggle_start = function() {
       window.localStorage['start_modal'] = !(window.localStorage['start_modal'] === 'true');

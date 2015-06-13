@@ -1,4 +1,4 @@
-<ion-view>
+<ion-view class="main">
   <ion-header-bar class="main-color">
     <div class="buttons buttons-left header-item">
       <span class="left-buttons">
@@ -7,26 +7,14 @@
     </div>
     <div class="h1 title title-left light">{{ 'Title' | translate }}</div>
   </ion-header-bar>
-  <ion-content class="padding" has-bouncing="true">
-    <div class="list animate-ripple">
-      <a class="item item-avatar" ng-click="motionFab('fade')" style="height: 74px;">
-        <img src="img/item1.png">
-        <h2>{{'Item1_title' | translate}}</h2>
-        <p>{{'Item1_text' | translate}}</p>
-      </a>
-      <a class="item item-avatar" style="height: 74px;">
-      <img src="img/item2.png">
-        <h2>{{'Item2_title' | translate}}</h2>
-        <p>{{'Item2_text' | translate}}</p>
-      </a>
-      <a class="item item-avatar" style="height: 74px;">
-      <img src="img/item3.png">
-        <h2>{{'Item3_title' | translate}}</h2>
-        <p>{{'Item3_text' | translate}}</p>
-      </a>
+  <ion-content class="center" has-bouncing="true">
+    <div class="row">
+    <div class="col">
+        <h3 class="dark">{{'Item1_title' | translate}}</h3>
+        <button id="main_fab" href="#/tab/start" class="button button-calm button-fab big-fab" ng-click="start_nav()">
+        <i class="icon ion-plus-circled"></i>
+        </button>
+    </div>
     </div>
   </ion-content>
-  <button id="main_fab" href="#/tab/start" class="button button-calm button-fab main-fab" ng-click="start_nav()">
-      <i class="icon ion-plus-circled"></i>
-    </button>
 </ion-view>

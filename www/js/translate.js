@@ -2,7 +2,7 @@
 myApp.config(['$translateProvider', function ($translateProvider, $scope) {
   $translateProvider.translations('en', {
     'Title': 'Sheba Navigation',
-    'Item1_title': 'Select location',
+    'Item1_title': 'Select your location',
     'Item1_text': 'Click on the plus icon',
     'Item2_title': 'Choose way of movement',
     'Item2_text': 'By legs or by car',
@@ -20,6 +20,7 @@ myApp.config(['$translateProvider', function ($translateProvider, $scope) {
     'Nav_pointA': 'Where are you?',
     'Nav_pointB': 'Final point',
     'Nav_bycar': 'By car',
+    'Nav_bylegs': 'Walking',
     'Nav_start': 'Start!',
     'Nav_drive': 'Driving mode',
     'Nav_walk': 'Walking mode'
@@ -27,7 +28,7 @@ myApp.config(['$translateProvider', function ($translateProvider, $scope) {
  
   $translateProvider.translations('ru', {
     'Title': 'Sheba Navigation',
-    'Item1_title': 'Выберите местоположение',
+    'Item1_title': 'Выберите Ваше местоположение',
     'Item1_text': 'Нажмите на иконку',
     'Item2_title': 'Задайте тип передвижения',
     'Item2_text': 'Пешком или на автомобиле',
@@ -45,6 +46,7 @@ myApp.config(['$translateProvider', function ($translateProvider, $scope) {
     'Nav_pointA': 'Где вы?',
     'Nav_pointB': 'Конечная точка',
     'Nav_bycar': 'На автомобиле',
+    'Nav_bylegs': 'Пешком',
     'Nav_start': 'Поехали!',
     'Nav_drive': 'На автомобиле',
     'Nav_walk': 'Пешком'

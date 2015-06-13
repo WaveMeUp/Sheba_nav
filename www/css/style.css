@@ -1,7 +1,14 @@
 /* Empty. Add your own CSS if you like */
 
 * {
-    box-shadow: none !important;
+    /*box-shadow: none !important;*/
+}
+
+@media(max-height: 375px) {
+  body .big-fab {
+  	width: 145px!important;
+  	height: 145px!important;
+  }
 }
 
 .main-color {
@@ -24,6 +31,22 @@
 	position: absolute;
 	bottom: 60px; 
 	right: 20px;
+}
+
+.big-fab {
+	width: 180px!important;
+	height: 180px!important;
+}
+
+.big-fab .icon::before {
+	font-size: 110px;
+}
+
+.left-fab {
+	display: inline-block;
+	position: absolute;
+	bottom: 60px; 
+	left: 20px;
 }
 
 .about_images img {
@@ -50,7 +73,7 @@
 
 .img_head p {
 	position: absolute;
-bottom: -12px;
+bottom: 0;
 color: white;
 font-size: 17px;
 background-color: rgba(76, 76, 76, 0.9);
@@ -59,8 +82,10 @@ padding: 5px;
 text-align: center;
 }
 
-#about_cont {
-	font-size: 14px;
+#about_cont p {
+	font-size: 18px;
+	text-overflow: inherit;
+	white-space: normal;
 }
 
 .about_grey {
@@ -70,6 +95,10 @@ text-align: center;
 	font-size: 15px;
 }
 .scroll{height: 100%;}
+
+.main .scroll {
+	height: inherit!important;
+}
 
 .pane, .modal {
 	background-image: url("../img/pattern.png") !important;
@@ -83,4 +112,36 @@ select {
 	max-width: 55%;
 	text-overflow: ellipsis;
 	text-align: right;
+}
+
+.center{
+  display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-direction: normal;
+    -moz-box-direction: normal;
+    -webkit-box-orient: horizontal;
+    -moz-box-orient: horizontal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-align-content: stretch;
+    -ms-flex-line-pack: stretch;
+    align-content: stretch;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    text-align: center;
 }

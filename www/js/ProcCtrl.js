@@ -8,6 +8,8 @@ myApp.controller('ProcCtrl', function($scope, $compile, Data, $translate, $state
         var map = new google.maps.Map(document.getElementById('map-canvas'),
             mapOptions);
 
+        var GeoMarker = new GeolocationMarker(map);
+
         directionsDisplay = new google.maps.DirectionsRenderer();
         var directionsService = new google.maps.DirectionsService();
 

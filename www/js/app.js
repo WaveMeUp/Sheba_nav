@@ -6,8 +6,9 @@ myApp.run(function($ionicPlatform) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
     }
     if (window.StatusBar) {
-      StatusBar.styleLightContent();
+      //StatusBar.styleLightContent();
     }
+
   });
 });
 
@@ -46,7 +47,6 @@ myApp.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) 
 
   .state('tab.about', {
       url: '/about',
-      cache: false,
       views: {
         'tab-about': {
           templateUrl: 'templates/tab-about.html',

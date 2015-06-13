@@ -10,6 +10,8 @@
   <content src="index.html"/>
   <access origin="*"/>
   <preference name="webviewbounce" value="true"/>
+  <preference name="StatusBarBackgroundColor" value="#0A9EC7" />
+  <preference name="StatusBarStyle" value="blacktranslucent" />
   <preference name="UIWebViewBounce" value="true"/>
   <preference name="DisallowOverscroll" value="true"/>
   <preference name="android-minSdkVersion" value="16"/>
